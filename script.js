@@ -881,7 +881,7 @@ function initParticles() {
     function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        // Removed unused variable 'currentTheme'
         
         for (let i = 0; i < particles.length; i++) {
             const p = particles[i];
@@ -989,4 +989,41 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
+});
+// Add CV download icon to the left
+function initDownloadCVIcon() {
+    const downloadIcon = document.createElement('a');
+    downloadIcon.href = '/path/to/your/cv.pdf'; // Replace with the actual path to your CV
+    downloadIcon.download = 'My_CV.pdf'; // Replace with the desired file name
+    downloadIcon.className = 'download-cv-icon';
+    downloadIcon.innerHTML = '<i class="fas fa-download"></i>'; // Font Awesome icon
+
+    downloadIcon.style.position = 'fixed';
+    downloadIcon.style.left = '20px';
+    downloadIcon.style.bottom = '20px';
+    downloadIcon.style.fontSize = '24px';
+    downloadIcon.style.color = '#3b82f6';
+    downloadIcon.style.backgroundColor = '#fff';
+    downloadIcon.style.borderRadius = '50%';
+    downloadIcon.style.padding = '10px';
+    downloadIcon.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    downloadIcon.style.zIndex = '1000';
+    downloadIcon.style.transition = 'all 0.3s ease';
+
+    downloadIcon.addEventListener('mouseover', () => {
+        downloadIcon.style.backgroundColor = '#3b82f6';
+        downloadIcon.style.color = '#fff';
+    });
+
+    downloadIcon.addEventListener('mouseout', () => {
+        downloadIcon.style.backgroundColor = '#fff';
+        downloadIcon.style.color = '#3b82f6';
+    });
+
+    document.body.appendChild(downloadIcon);
+}
+
+// Initialize CV download icon
+document.addEventListener('DOMContentLoaded', () => {
+    initDownloadCVIcon();
 });
