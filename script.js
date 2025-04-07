@@ -29,7 +29,7 @@ const translations = {
             "title": "Sobre Mim",
             "p1": "Desenvolvedor Full Stack em formação, apaixonado por criar soluções digitais inovadoras que combinam funcionalidade e design atraente.",
             "p2": "Minha jornada na programação começou com a curiosidade em entender como funcionam as tecnologias que usamos todos os dias.",
-            "p3": "Atualmente me dedicando a aprender HTML, CSS, JavaScript, Python, WordPress e ferramentas de design como Figma e Miro.",
+            "p3": "Atualmente me dedicando a aprender HTML, CSS, JavaScript, Python, WordPress e ferramentas de design como Canva e Figma.",
             "p4": "Meu objetivo é me tornar um desenvolvedor nômade, trabalhando remotamente em projetos desafiadores ao redor do mundo."
         },
         "skills": {
