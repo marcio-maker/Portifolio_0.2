@@ -93,7 +93,7 @@ const translations = {
             "title": "About Me",
             "p1": "Full Stack Developer in training, passionate about creating innovative digital solutions that combine functionality and attractive design.",
             "p2": "My journey in programming began with curiosity about how the technologies we use every day work.",
-            "p3": "Currently dedicated to learning HTML, CSS, JavaScript, Python, WordPress and design tools like Figma and Miro.",
+            "p3": "Currently dedicated to learning HTML, CSS, JavaScript, Python, WordPress and design tools like Canva and Figma.",
             "p4": "My goal is to become a nomadic developer, working remotely on challenging projects around the world."
         },
         "skills": {
@@ -157,7 +157,7 @@ const translations = {
             "title": "Sobre Mí",
             "p1": "Desarrollador Full Stack en formación, apasionado por crear soluciones digitales innovadoras que combinen funcionalidad y diseño atractivo.",
             "p2": "Mi viaje en la programación comenzó con la curiosidad de entender cómo funcionan las tecnologías que usamos todos los días.",
-            "p3": "Actualmente dedicado a aprender HTML, CSS, JavaScript, Python, WordPress y herramientas de diseño como Figma y Miro.",
+            "p3": "Actualmente dedicado a aprender HTML, CSS, JavaScript, Python, WordPress y herramientas de diseño como Canva y Figma.",
             "p4": "Mi objetivo es convertirme en un desarrollador nómada, trabajando remotamente en proyectos desafiantes alrededor del mundo."
         },
         "skills": {
