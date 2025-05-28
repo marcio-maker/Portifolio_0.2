@@ -1102,6 +1102,116 @@ function initAboutAnimation() {
     );
 }
 
+function initContactAnimations() {
+    // Links com Hover Animado
+    document.querySelectorAll(".contact-method").forEach(link => {
+        link.addEventListener("mouseenter", () => {
+            gsap.to(link, { y: -5, scale: 1.05, duration: 0.3, ease: "power1.out" });
+        });
+
+        link.addEventListener("mouseleave", () => {
+            gsap.to(link, { y: 0, scale: 1, duration: 0.3, ease: "power1.out" });
+        });
+    });
+
+    // Campos de Formulário com Slide-In
+    gsap.from(".form-group", {
+        x: 100,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: "#contact",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    // Botão de Enviar com Pulso
+    const submitBtn = document.querySelector(".contact-form .btn.btn-primary");
+    if (submitBtn) {
+        gsap.to(submitBtn, {
+            scale: 1.05,
+            duration: 1,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            scrollTrigger: {
+                trigger: "#contact",
+                start: "top 80%",
+                end: "bottom top",
+                toggleActions: "play pause resume pause"
+            }
+        });
+        submitBtn.addEventListener("mouseenter", () => gsap.to(submitBtn, { scale: 1, duration: 0.3 }));
+        submitBtn.addEventListener("mouseleave", () => gsap.to(submitBtn, { scale: 1.05, duration: 0.3 }));
+    }
+
+    // Bordas Iluminadas
+    gsap.to("#contact-form input, #contact-form textarea", {
+        duration: 0.5,
+        stagger: 0.2,
+        onStart: function() {
+            this.targets().forEach(el => el.classList.add("glow"));
+        },
+        scrollTrigger: {
+            trigger: "#contact",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            onLeaveBack: () => {
+                document.querySelectorAll("#contact-form input, #contact-form textarea").forEach(el => el.classList.remove("glow"));
+            }
+        }
+    });
+
+    // Ícones com Rotação
+    gsap.from(".contact-method i", {
+        rotation: 90,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        scrollTrigger: {
+            trigger: "#contact",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        }
+    });
+    
+    document.querySelectorAll(".contact-method").forEach(link => {
+        link.addEventListener("mouseenter", () => {
+            gsap.to(link.querySelector("i"), {
+                rotation: "+=10",
+                duration: 0.2,
+                yoyo: true,
+                repeat: 3
+            });
+        });
+    });
+
+    // Partículas no Hover do Título "Entre em Contato"
+    const contactTitle = document.querySelector(".contact-info h3");
+    if (contactTitle) {
+        contactTitle.style.position = "relative"; // Para posicionar partículas
+        contactTitle.addEventListener("mouseenter", () => {
+            for (let i = 0; i < 5; i++) {
+                const particle = document.createElement("div");
+                particle.className = "particle";
+                contactTitle.appendChild(particle);
+                gsap.to(particle, {
+                    x: gsap.utils.random(-50, 50),
+                    y: gsap.utils.random(-50, 50),
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power2.out",
+                    onComplete: () => particle.remove()
+                });
+            }
+        });
+    }
+}
+
+// No final do document.addEventListener('DOMContentLoaded', ...), adicione:
+initContactAnimations();
 // Loader functionality
 function initLoader() {
     const loader = document.querySelector('.loader');
