@@ -60,7 +60,7 @@
     <!-- Header -->
     <header class="glass-header">
         <div class="container">
-            <div class="logo">MG</div>
+            <div class="logo">MM</div>
             <nav>
                 <ul>
                     <li><a href="#home" data-i18n="nav.home">Home</a></li>
@@ -87,7 +87,7 @@
     <section id="home" class="hero futurist-hero">
         <div class="container">
             <div class="hero-content futurist-content">
-                <h1 data-text="Olá, eu sou <span>Márcio Gemelli</span>">Olá, eu sou <span>Márcio Gemelli</span></h1>
+                <h1 class="typing-loop" data-text="Olá, eu sou <span>Márcio Gemelli</span>">Olá, eu sou <span>Marcio Maker</span></h1>
                 <p data-i18n="hero.subtitle">Desenvolvedor Full Stack & Designer criando soluções digitais globais</p>
                 <div class="time-display glass-effect">
                     <p><span data-i18n="hero.yourTime">Seu horário:</span> <span id="visitor-time" class="time-number"></span></p>
@@ -104,23 +104,25 @@
             </blockquote>
         </div>
     </section>
-
     <!-- About Section -->
-    <section id="about" class="about futurist-section glass-section">
-        <div class="container">
-            <h2 data-i18n="about.title">Sobre Mim</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p data-i18n="about.p1">Desenvolvedor Full Stack em formação, apaixonado por criar soluções digitais inovadoras que combinam funcionalidade e design atraente.</p>
-                    <p data-i18n="about.p2">Minha jornada na programação começou com a curiosidade em entender como funcionam as tecnologias que usamos todos os dias.</p>
-                    <p data-i18n="about.p3">Atualmente me dedicando a aprender Ai, HTML, CSS, JavaScript, Python, WordPress e ferramentas de design como Canva e Figma.</p>
-                    <p data-i18n="about.p4">Meu objetivo é me tornar um desenvolvedor nômade, trabalhando remotamente em projetos desafiadores ao redor do mundo.</p>
-                </div>
-                    <img src="avatar.png" alt="Márcio Gemelli" width="400" height="250">
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="about" class="reveal-section">
+  <div class="about-background">
+    <svg class="background-shapes" viewBox="0 0 100 100">
+      <circle cx="20" cy="20" r="10" fill="rgba(59, 130, 246, 0.2)" class="shape" />
+      <circle cx="80" cy="80" r="15" fill="rgba(16, 185, 129, 0.2)" class="shape" />
+    </svg>
+  </div>
+  <h2 data-i18n="about.title">Sobre Mim</h2>
+  <div class="about-content">
+    <div class="about-text">
+      <p data-i18n="about.p1">Desenvolvedor Full Stack em formação, apaixonado por criar soluções digitais inovadoras que combinam funcionalidade e design atraente.</p>
+      <p data-i18n="about.p2">Minha jornada na programação começou com a curiosidade em entender como funcionam as tecnologias que usamos todos os dias.</p>
+      <p data-i18n="about.p3">Atualmente me dedicando a aprender <span class="highlight">HTML</span>, <span class="highlight">CSS</span>, <span class="highlight">JavaScript</span>, <span class="highlight">Python</span>, WordPress e ferramentas de design como Canva e Figma.</p>
+      <p data-i18n="about.p4">Meu objetivo é me tornar um desenvolvedor nômade, trabalhando remotamente em projetos desafiadores ao redor do mundo.</p>
+    </div>
+    <img src="avatar.png" alt="About Me Image">
+  </div>
+</section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills futurist-section">
@@ -188,9 +190,6 @@
 <section id="projects" class="projects">
     <div class="container">
         <h2 data-i18n="projects.title">Meus Projetos</h2>
-        
-        <!-- Elemento decorativo flutuante -->
-        <i class="fas fa-cogs floating-tech" aria-hidden="true" title="Elemento tecnológico abstrato"></i>
         
         <div class="project-filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
@@ -640,6 +639,9 @@
 </footer>
            
    <!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>    
 <script src="script.js" defer></script>
+
 </body>
 </html>
