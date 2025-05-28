@@ -1113,7 +1113,7 @@ nav ul li a:hover::after {
 /* Contact Section (Restored Original) */
 .contact {
     padding: 80px 0;
-    background-color: var(--dark-color);
+    background-color: transparent;
     color: var(--text-light);
     position: relative;
 }
