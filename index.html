@@ -112,7 +112,7 @@
       <circle cx="80" cy="80" r="15" fill="rgba(16, 185, 129, 0.2)" class="shape" />
     </svg>
   </div>
-  <h2 data-i18n="about.title">Sobre Mim</h2>
+  <h2 class="section-title"data-i18n="about.title">Sobre Mim</h2>
   <div class="about-content">
     <div class="about-text">
       <p data-i18n="about.p1">Desenvolvedor Full Stack em formação, apaixonado por criar soluções digitais inovadoras que combinam funcionalidade e design atraente.</p>
@@ -127,7 +127,7 @@
     <!-- Skills Section -->
     <section id="skills" class="skills futurist-section">
         <div class="container">
-            <h2 data-i18n="skills.title">Minhas Habilidades</h2>
+            <h2 class="section-title"data-i18n="skills.title">Minhas Habilidades</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fab fa-html5"></i></div>
@@ -189,7 +189,7 @@
 <!-- Projects Section -->
 <section id="projects" class="projects">
     <div class="container">
-        <h2 data-i18n="projects.title">Meus Projetos</h2>
+        <h2 class="section-title" data-i18n="projects.title">Meus Projetos</h2>
         
         <div class="project-filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
@@ -568,7 +568,7 @@
 <!-- Contact Section -->
 <section id="contact" class="contact futurist-section">
     <div class="container">
-        <h2 data-i18n="contact.title">Contato</h2>
+        <h2 class="section-title" data-i18n="contact.title">Contato</h2>
         <div class="contact-content">
             <div class="contact-info">
                 <h3 data-i18n="contact.getInTouch">Entre em contato</h3>
@@ -632,12 +632,15 @@
                     <a href="https://wa.me/+5511914809693" target="_blank" style="margin: 0 0.5rem;"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.behance.net/0faa6a9e" target="_blank" style="margin: 0 0.5rem;"><i class="fab fa-behance"></i></a>
                 </div>
-                <p>&copy; <span id="current-year"></span> Marcio Gemelli. <span data-i18n="footer.rights">Todos os direitos reservados</span></p>
+                <div class="footer-credits"></div>
+                    <p>&copy; <span id="current-year"></span> Marcio Maker. <span data-i18n="footer.rights">Todos os direitos reservados</span> <span class="coffee-icon">☕</span></p>
+                </div>
             </div>
 
 </footer>
            
    <!-- Scripts -->
+   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>    
 <script src="script.js" defer></script>

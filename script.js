@@ -216,7 +216,6 @@ const translations = {
     }
 };
 
-// Apply translations
 function applyTranslations(lang) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const keys = element.getAttribute('data-i18n').split('.');
@@ -227,7 +226,33 @@ function applyTranslations(lang) {
             if (!translation) break;
         }
         
-        if (translation) element.textContent = translation;
+        if (translation) {
+            element.textContent = translation;
+            // Se for um título com .section-title, reaplicar o efeito de ondas
+            if (element.classList.contains('section-title')) {
+                const chars = translation.split('');
+                element.innerHTML = ''; // Limpar o conteúdo
+                chars.forEach(char => {
+                    const span = document.createElement('span');
+                    span.className = 'wave-char';
+                    span.textContent = char === ' ' ? '\u00A0' : char;
+                    element.appendChild(span);
+                });
+                // Reaplicar animação GSAP
+                gsap.from(element.querySelectorAll('.wave-char'), {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.05,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 80%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+            }
+        }
     });
 
     document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
@@ -242,7 +267,6 @@ function applyTranslations(lang) {
         if (translation) element.setAttribute('placeholder', translation);
     });
 }
-
 // Theme functionality
 function toggleTheme() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -622,8 +646,8 @@ function initTypewriter() {
     const prefix = 'Oi, eu sou... ';
     const phrases = [
         '<span>Marcio Maker</span>',
-        '<span>Apaixonado por Criatividade</span>',
-        '<span>Designer de Interfaces</span>'
+        '<span>Criador de Soluções Digitais</span>',
+        '<span>Desenvolvedor Full Stack</span>'
     ];
 
     let phraseIndex = 0;
@@ -1209,9 +1233,35 @@ function initContactAnimations() {
         });
     }
 }
-
-// No final do document.addEventListener('DOMContentLoaded', ...), adicione:
-initContactAnimations();
+// Partículas no Hover da Seção de Contato
+// (mover para dentro do DOMContentLoaded principal para evitar erros de DOM não carregado)
+function initContactSectionParticles() {
+    const contactSection = document.querySelector("#contact");
+    if (contactSection) {
+        contactSection.style.position = "relative"; // Necessário para posicionar partículas
+        contactSection.addEventListener("mouseenter", (event) => {
+            for (let i = 0; i < 10; i++) { // Aumentado de 5 para 10 partículas
+                const particle = document.createElement("div");
+                particle.className = "particle";
+                // Posicionar partículas na posição do mouse
+                const rect = contactSection.getBoundingClientRect();
+                const mouseX = event.clientX - rect.left;
+                const mouseY = event.clientY - rect.top;
+                particle.style.left = `${mouseX}px`;
+                particle.style.top = `${mouseY}px`;
+                contactSection.appendChild(particle);
+                gsap.to(particle, {
+                    x: gsap.utils.random(-50, 50),
+                    y: gsap.utils.random(-50, 50),
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power2.out",
+                    onComplete: () => particle.remove()
+                });
+            }
+        });
+    }
+}
 // Loader functionality
 function initLoader() {
     const loader = document.querySelector('.loader');
@@ -1322,7 +1372,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // Consolidated resize handler
 function handleResize() {
     if (projectCards.length > 0 && carousel && carouselInner) {
-        const cardWidth = projectCards[0].offsetWidth + 30;
         const updateCarousel = carouselInner.updateCarousel;
         if (updateCarousel) updateCarousel();
     }
@@ -1362,6 +1411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initDownloadCVIcon();
         initAboutAnimation();
         initGSAPCarousel();
+        initWaveEffect(); // Add this line
         applyTranslations('pt');
         const currentYear = document.getElementById('current-year');
         if (currentYear) {
@@ -1371,7 +1421,60 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         window.addEventListener('resize', debounce(handleResize, 100));
+
+        // Mover estas chamadas para cá para garantir que o DOM esteja pronto
+        initContactAnimations();
+        initContactSectionParticles();
     } catch (error) {
         console.error('Erro na inicialização:', error.message);
     }
 });
+function initWaveEffect() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('GSAP ou ScrollTrigger não estão carregados.');
+        return;
+    }
+
+    // Selecionar todos os h2 com classe section-title
+    const titles = document.querySelectorAll('.section-title');
+    if (titles.length === 0) {
+        console.warn('Nenhum título com classe section-title encontrado');
+        return;
+    }
+
+    titles.forEach(title => {
+        // Preservar o atributo data-i18n
+        const i18nKey = title.getAttribute('data-i18n');
+        const originalText = title.textContent;
+
+        // Dividir o texto em caracteres
+        const chars = originalText.split('');
+        title.innerHTML = ''; // Limpar o conteúdo original
+
+        chars.forEach(char => {
+            const span = document.createElement('span');
+            span.className = 'wave-char';
+            span.textContent = char === ' ' ? '\u00A0' : char; // Preservar espaços
+            title.appendChild(span);
+        });
+
+        // Animar cada caractere com GSAP
+        gsap.from(title.querySelectorAll('.wave-char'), {
+            y: 20, // Deslocamento vertical inicial
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.05, // Atraso entre cada caractere
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: title,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Restaurar o atributo data-i18n para manter a funcionalidade de tradução
+        if (i18nKey) {
+            title.setAttribute('data-i18n', i18nKey);
+        }
+    });
+}
