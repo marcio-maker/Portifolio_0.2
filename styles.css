@@ -1129,6 +1129,7 @@ nav ul li a:hover::after {
 }
 
 /* Contact Section (Restored Original) */
+<<<<<<< HEAD
 /* Fundo com Gradiente Azul Clarinho para a Seção de Contato */
 #contact {
     background: linear-gradient(
@@ -1137,6 +1138,13 @@ nav ul li a:hover::after {
         rgba(186, 212, 246, 0.5) /* Azul clarinho um pouco mais intenso na base */
     );
     position: relative; /* Mantém compatibilidade com as partículas */
+=======
+.contact {
+    padding: 80px 0;
+    background-color: transparent;
+    color: var(--text-light);
+    position: relative;
+>>>>>>> 4009784bf9089f699855a1dc4d217f3ab3677f4a
 }
 
 /* Ajuste para o Tema Escuro */
@@ -1722,6 +1730,7 @@ a:hover {
 [data-theme="dark"] .name-loop {
     color: var(--text-light);
 }
+<<<<<<< HEAD
 /* Centralizar todos os títulos h2 */
 
 .section-title {
@@ -1819,3 +1828,5 @@ a:hover {
     border-left: 6px solid var(--primary-color);
     box-shadow: 0 4px 24px rgba(59,130,246,0.08);
 }
+=======
+>>>>>>> 4009784bf9089f699855a1dc4d217f3ab3677f4a
