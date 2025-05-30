@@ -359,7 +359,7 @@ header {
     right: 0;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background: rgba(15, 23, 42, 0.8);
+    background-color: var(--dark-color); /* Changed to use theme variable for consistent color with footer */
     box-shadow: var(--box-shadow);
     z-index: 1000;
     padding: 10px 0;
@@ -371,6 +371,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--text-light);
+    padding: 40px 0 18px;
+    position: relative;
+    transition: background-color 0.5s ease; /* Added for smooth theme changes, consistent with header */
+ }
 }
 
 .logo {
@@ -1782,4 +1787,35 @@ a:hover {
 [data-theme="light"] .particle {
     background: var(--primary-color); /* Azul escuro no modo claro */
     box-shadow: 0 0 8px var(--primary-color);
+}
+/* Citação estilizada para modos claro e escuro */
+.quote-block {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--text-light);
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background-clip: padding-box;
+    border-radius: var(--border-radius);
+    margin: 4rem auto 2rem;
+    max-width: 600px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 24px rgba(59,130,246,0.08);
+    position: relative;
+    border-left: 6px solid var(--accent-color);
+    transition: background 0.4s, color 0.4s;
+}
+
+[data-theme="dark"] .quote-block {
+    color: var(--text-light);
+    background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
+    border-left: 6px solid var(--secondary-color);
+    box-shadow: 0 4px 24px rgba(16,185,129,0.12);
+}
+
+[data-theme="light"] .quote-block {
+    color: var(--text-color);
+    background: linear-gradient(90deg, #f1f5f9 0%, #e0e7ef 100%);
+    border-left: 6px solid var(--primary-color);
+    box-shadow: 0 4px 24px rgba(59,130,246,0.08);
 }

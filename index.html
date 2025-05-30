@@ -87,7 +87,7 @@
     <section id="home" class="hero futurist-hero">
         <div class="container">
             <div class="hero-content futurist-content">
-                <h1 class="typing-loop" data-text="Olá, eu sou <span>Márcio Gemelli</span>">Olá, eu sou <span>Marcio Maker</span></h1>
+                <h1 class="typing-loop" data-i18n="hero.greeting">Olá, eu sou <span>Marcio Maker</span></h1>
                 <p data-i18n="hero.subtitle">Desenvolvedor Full Stack & Designer criando soluções digitais globais</p>
                 <div class="time-display glass-effect">
                     <p><span data-i18n="hero.yourTime">Seu horário:</span> <span id="visitor-time" class="time-number"></span></p>
@@ -98,10 +98,11 @@
                     <a href="#contact" class="btn btn-secondary" data-i18n="hero.contact">Contato</a>
                 </div>
             </div>
-            <div class="hero-quote" style="margin-top: 2rem;"></div>
-            <blockquote style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; text-align: center; color: #fff; margin: 4rem auto 2rem; max-width: 600px;"></blockquote>
-                "A inovação distingue um líder de um seguidor." - Steve Jobs
-            </blockquote>
+            <div class="hero-quote" style="margin-top: 2rem;">
+                <blockquote class="hero-quote" data-i18n="hero.quote">
+                    "A inovação distingue um líder de um seguidor." - Steve Jobs
+                </blockquote>
+            </div>
         </div>
     </section>
     <!-- About Section -->
@@ -632,11 +633,11 @@
                     <a href="https://wa.me/+5511914809693" target="_blank" style="margin: 0 0.5rem;"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.behance.net/0faa6a9e" target="_blank" style="margin: 0 0.5rem;"><i class="fab fa-behance"></i></a>
                 </div>
-                <div class="footer-credits"></div>
+                <div class="footer-credits">
                     <p>&copy; <span id="current-year"></span> Marcio Maker. <span data-i18n="footer.rights">Todos os direitos reservados</span> <span class="coffee-icon">☕</span></p>
                 </div>
             </div>
-
+        </div>
 </footer>
            
    <!-- Scripts -->

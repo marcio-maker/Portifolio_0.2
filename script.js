@@ -1364,10 +1364,7 @@ function initNameLoop() {
 }
 
 // Call the function on page load
-document.addEventListener('DOMContentLoaded', () => {
-    initNameLoop();
-    // ... other init functions
-});
+// (Removed duplicate DOMContentLoaded listener to avoid conflicts)
 
 // Consolidated resize handler
 function handleResize() {
