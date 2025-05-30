@@ -23,14 +23,6 @@ const translations = {
             "contact": "Contato"
         },
         "hero": {
-               "intro": "Oi, eu sou...",
-
-            // Para português
-            // "intro": "Oi, eu sou...",
-            // para inglês
-            // "intro": "Hi, I'm...",
-            // para espanhol
-             // "intro": "Hola, soy...",
             "title": "Olá, eu sou",
             "subtitle": "Desenvolvedor Full Stack & Designer criando soluções digitais globais",
             "yourTime": "Seu horário:",
